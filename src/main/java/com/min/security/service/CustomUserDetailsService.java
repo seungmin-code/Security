@@ -21,6 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity userEntity =  securityMapper.selectByUsername(username);
 
+        // 일치하는 아이디가 없을 시 예외처리
         if (userEntity == null) {
             throw new UsernameNotFoundException(username);
         }

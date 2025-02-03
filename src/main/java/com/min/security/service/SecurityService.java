@@ -18,8 +18,10 @@ public class SecurityService {
     }
 
     public void memberJoin(Map<String, Object> params) {
+        // 비밀번호 암호화
         String encryptedPassword = passwordEncoder.encode(params.get("password").toString());
         params.put("password", encryptedPassword);
+
         securityMapper.memberJoin(params);
     }
 }

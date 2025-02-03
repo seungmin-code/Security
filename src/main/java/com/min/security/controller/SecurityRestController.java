@@ -16,6 +16,7 @@ public class SecurityRestController {
         this.securityService = securityService;
     }
 
+    // 회원가입
     @PostMapping("/memberJoin")
     public void memberJoin(@RequestParam Map<String, Object> params) {
         securityService.memberJoin(params);
