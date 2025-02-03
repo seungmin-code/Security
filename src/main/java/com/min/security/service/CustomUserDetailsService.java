@@ -19,6 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // 아이디 존재여부 조회
         UserEntity userEntity =  securityMapper.selectByUsername(username);
 
         // 일치하는 아이디가 없을 시 예외처리
@@ -26,6 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
 
+        // 회원정보 반환
         return User.builder()
                 .username(userEntity.getUsername())
                 .password(userEntity.getPassword())

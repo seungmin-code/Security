@@ -17,6 +17,7 @@ public class SecurityService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    // 회원가입
     public void memberJoin(Map<String, Object> params) {
         // 비밀번호 암호화
         String encryptedPassword = passwordEncoder.encode(params.get("password").toString());
